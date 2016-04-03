@@ -8,10 +8,10 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 
 /**
- * Class CountWordsCommand
+ * Class CountCharsCommand
  * @package TestTask\Console\Command
  */
-class CountWordsCommand extends AbstractTextCommand
+class CountCharsCommand extends AbstractTextCommand
 {
     /**
      *
@@ -20,8 +20,8 @@ class CountWordsCommand extends AbstractTextCommand
     {
         parent::configure();
         $this
-            ->setName('text:countWords')
-            ->setDescription('Counts the words in the given file');
+            ->setName('text:countChars')
+            ->setDescription('Counts the chars in the given file');
     }
 
     /**
@@ -33,19 +33,20 @@ class CountWordsCommand extends AbstractTextCommand
     {
         $file = $input->getArgument("file");
 
-        $wordCount = $this->countWords($file);
+        $letterCount = $this->countLetters($file);
 
-        $output->writeln("Text in file '$file' contains $wordCount words!");
+        foreach ($letterCount as $key => $value) {
+            $output->writeln(chr($key) . " occurs (char: $key) " . $value . " x");
+        }
     }
 
     /**
      * @param $file
      * @return mixed
      */
-    protected function countWords($file)
-    {
-        $fileContent = $this->readFileContent($file);
+    protected function countLetters($file){
+        $content = strtolower(preg_replace("#[^\\w]#", "", $this->readFileContent($file)));
 
-        return str_word_count($fileContent);
+        return count_chars($content, 1);
     }
 }
