@@ -1,0 +1,22 @@
+{
+  "name": "aroddis/text-test",
+  "description": "Testaufgabe",
+  "minimum-stability": "dev",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Alexander Roddis",
+      "email": "alexander.roddis@check24.de"
+    }
+  ],
+  "bin": ["bin/console"],
+  "require": {
+    "php": ">=5.3.9 <5.5",
+    "symfony/console": "^2.6",
+    "symfony/finder": "^2.6",
+    "psr/log": "^1.0@dev"
+  },
+  "autoload": {
+    "psr-4": {"TestTask\\": "src/TestTask"}
+  }
+}
