@@ -20,12 +20,13 @@ class AbstractTextCommand extends Command
      * @param $filePath
      * @return string
      */
-    protected function readFileContent($filePath){
-        if(!file_exists($filePath)){
+    protected function readFileContent($filePath)
+    {
+        if (!file_exists($filePath)) {
             throw new TextFileDoesNotExistException($filePath);
         }
 
-        if(!is_writable($filePath)){
+        if (!is_writable($filePath)) {
             throw new TextFileIsNotWritableException($filePath);
         }
 
@@ -38,10 +39,10 @@ class AbstractTextCommand extends Command
     protected function configure()
     {
         $this->addArgument(
-                'file',
-                InputArgument::REQUIRED,
-                'Which file to process'
-            );
+            'file',
+            InputArgument::REQUIRED,
+            'Which file to process'
+        );
     }
 
 }

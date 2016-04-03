@@ -54,15 +54,16 @@ class SortCharsCommand extends AbstractTextCommand
      * @param $sortingDirection
      * @return string
      */
-    protected function sortChars($file, $sortingDirection){
+    protected function sortChars($file, $sortingDirection)
+    {
 
         $content = preg_replace("#[^\\w]#", "", $this->readFileContent($file));
 
         $chars = str_split($content);
 
-        if($sortingDirection === "asc") {
+        if ($sortingDirection === "asc") {
             sort($chars);
-        }else{
+        } else {
             rsort($chars);
         }
 

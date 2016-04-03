@@ -14,7 +14,8 @@ class TextFileIsNotWritableException extends InvalidArgumentException
     /**
      * @param $filePath
      */
-    public function __constructor($filePath){
+    public function __constructor($filePath)
+    {
         $this->message = "The file '$filePath' is not writable for the command!";
     }
 }

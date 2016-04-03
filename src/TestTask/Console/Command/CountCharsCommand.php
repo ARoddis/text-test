@@ -44,7 +44,8 @@ class CountCharsCommand extends AbstractTextCommand
      * @param $file
      * @return mixed
      */
-    protected function countLetters($file){
+    protected function countLetters($file)
+    {
         $content = strtolower(preg_replace("#[^\\w]#", "", $this->readFileContent($file)));
 
         return count_chars($content, 1);

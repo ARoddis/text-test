@@ -47,19 +47,20 @@ class Application extends \Symfony\Component\Console\Application
     protected function findCommandFiles()
     {
         return (
-            new Finder()
+        new Finder()
         )->files()
-         ->in(self::COMMAND_PATH)
-         ->depth(0)
-         ->notName("Abstract*.php")
-         ->name("*.php");
+            ->in(self::COMMAND_PATH)
+            ->depth(0)
+            ->notName("Abstract*.php")
+            ->name("*.php");
     }
 
     /**
      * @param SplFileInfo $commandFile
      * @return string
      */
-    protected function getClassName(SplFileInfo $commandFile){
-        return self::COMMAND_NAMESPACE.'\\'.str_replace(".php", "", $commandFile->getBasename());
+    protected function getClassName(SplFileInfo $commandFile)
+    {
+        return self::COMMAND_NAMESPACE . '\\' . str_replace(".php", "", $commandFile->getBasename());
     }
 }

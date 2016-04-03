@@ -14,7 +14,8 @@ class TextFileDoesNotExistException extends InvalidArgumentException
     /**
      * @param $filePath
      */
-    public function __constructor($filePath){
+    public function __constructor($filePath)
+    {
         $this->message = "File with path '$filePath' does not exist!";
     }
 }

@@ -38,8 +38,8 @@ class CountWordOccurrenceCommand extends AbstractTextCommand
         $output->writeln("Text in file '$file' contains following occurrences of words:");
         $output->writeln("");
 
-        foreach($wordOccurrences as $word => $occurrence){
-            $output->writeln("$word => ".$occurrence);
+        foreach ($wordOccurrences as $word => $occurrence) {
+            $output->writeln("$word => " . $occurrence);
         }
     }
 
@@ -51,7 +51,7 @@ class CountWordOccurrenceCommand extends AbstractTextCommand
     {
         $fileContent = $this->readFileContent($file);
 
-        $wordOccurrences =  array_count_values(
+        $wordOccurrences = array_count_values(
             str_word_count($fileContent, 2)
         );
 
